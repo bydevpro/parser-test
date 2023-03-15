@@ -1,3 +1,16 @@
+
+<h2>Задание 2.</h2>
+<h5>SELECT t1.client_id, t1.warehouseName, t1.supplierArticle, t1.quantity, t1.data
+FROM table_name t1
+INNER JOIN (
+  SELECT MAX(data) AS data, client_id, warehouseName, supplierArticle, quantity
+  FROM table_name
+  GROUP BY client_id, warehouseName, supplierArticle, quantity
+) t2
+ON t1.data = t2.data AND t1.client_id = t2.client_id AND t1.supplierArticle = t2.supplierArticle and t1.warehouseName = t2.warehouseName AND t1.quantity = t2.quantity;</h5>
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
