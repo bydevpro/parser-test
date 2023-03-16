@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', '\App\Http\Controllers\JsonParserController@index');
+Route::get('/result-api', '\App\Http\Controllers\JsonParserController@index');
 
