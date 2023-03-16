@@ -30,8 +30,11 @@ class JsonParserController extends Controller
             //заполняем поля нашего массива. Здесь суммируем показатели Price
             $request['summPrice'] = $request['summPrice'] + $item['Price'];
             //Собираем в массив склады
-            $request['uniqueWarehouse'][] = $item['warehouseName'];
-        }
+            //Проверяем на дубликаты
+            if (!in_array($item['warehouseName'], $request['uniqueWarehouse'])) {
+                $request['uniqueWarehouse'][] = $item['warehouseName'];
+            }
+         }
         /*кодируем массив в json. параметр JSON_UNESCAPED_UNICODE
          нужен для читаемого отбражения кириллических символов */
         $request = json_encode($request, JSON_UNESCAPED_UNICODE);
